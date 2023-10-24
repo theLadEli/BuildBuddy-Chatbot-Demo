@@ -1,7 +1,10 @@
 body {
     background: #F2F2F5;
     margin: 0;
+    font-family: Aeonik;
 }
+
+/* Menu Bar */
 
 header {
     /* Layout */
@@ -20,7 +23,8 @@ header {
     /* Layout */
     display: flex;
     height: 48px;
-    padding: 12px 24px;
+    width: fit-content;
+    padding: 0px 24px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -33,13 +37,10 @@ header {
     /* Typography */
     color: var(--text-white, #FFF);
     text-align: center;
-
-    /* Title H5 */
-    font-family: Aeonik;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px;
+    text-decoration: none;
     letter-spacing: 0.16px;
 }
 
@@ -50,8 +51,45 @@ nav {
     gap: 24px;
 }
 
+nav a {
+    color: var(--text-primary, #272F3A);
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+}
+
+nav .active {
+    color: var(--Button, #3399FD);
+    font-weight: 700;
+}
+
+/* Hero Section */
+
 #hero-section {
     background: #57B3BD;
+    min-height: 540px;
+}
+
+h1 {
+    margin: 0;
+    color: var(--Text, #272F3A);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0.32px;
+}
+
+p {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.18px;
 }
 
 footer {
