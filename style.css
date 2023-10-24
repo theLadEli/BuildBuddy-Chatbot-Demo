@@ -71,6 +71,20 @@ nav .active {
 #hero-section {
     background: #57B3BD;
     min-height: 540px;
+    display: flex;
+    flex-direction: row;
+}
+
+#hero-section .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: stretch;
+    justify-content: center;
+}
+
+#hero-section .column {
+    width: 50%;
 }
 
 h1 {
@@ -92,6 +106,18 @@ p {
     letter-spacing: 0.18px;
 }
 
+.btn-light {
+    box-shadow: none;
+    background: #fff;
+    color: #57B3BD;
+    text-transform: uppercase;
+}
+
 footer {
     background: #0C1C2C;
+}
+
+.max-width {
+    max-width: 1100px;
+    display: flex;
 }
