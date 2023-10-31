@@ -1,0 +1,233 @@
+body {
+    background-color: #F2F2F5;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+h3 {
+    margin: 0;
+}
+
+#chatbot {
+    border-radius: 15px;
+    background: #F2F2F5;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+    width: 500px;
+}
+
+#chat-header {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Style */
+    padding: 20px 25px;
+    background: #424343;
+    border-radius: 15px 15px 0 0;
+}
+
+.chat-logo {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+
+    /* Typography */
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0.24px;
+}
+
+.window-ctrls {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.window-ctrl {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #EE6A5F;
+    border: solid 0.5px #CE5347;
+    box-shadow: 0px 0px 6px 0px #EC6D62 inset;
+}
+
+.yellow {
+    background-color: #F5BD4F;
+    border: solid 0.5px #D6A243;
+    box-shadow: 0px 0px 6px 0px #F5C451 inset;
+}
+
+.green {
+    background-color: #61C454;
+    border: solid 0.5px #58A942;
+    box-shadow: 0px 0px 6px 0px #68CC58 inset;
+}
+
+/* ---------------------------------------------------- */
+
+#chat-body {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    /* Styling */
+    background-color: #F2F2F5;
+    height: 500px;
+    overflow-y: scroll;
+    padding: 30px;
+}
+
+#chat-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+#chat-body::-webkit-scrollbar-thumb:hover {
+    background: #7e7e7e;
+}
+
+/* Firefox */
+#chat-body {
+    scrollbar-width: thin;
+    scrollbar-color: #7e7e7e #f1f1f100;
+}
+
+.message {
+    /* Styling */
+    padding: 20px;
+
+    /* Typography */
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    letter-spacing: 0.14px;
+    text-align: left;
+}
+
+.bot-message {
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 325px;
+    align-self: flex-start;
+}
+
+.user-message {
+    border-radius: 8px;
+    background: linear-gradient(98deg, #228D99 0%, #57B3BD 89.04%);
+    max-width: 325px;
+    color: #fff;
+    align-self: flex-end;
+}
+
+.bot-sign-up-prompt {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-button {
+    /* Style */
+    padding: 14px 60px;
+    border-radius: 32px;
+    border: 3px solid #228D99;
+    cursor: pointer;
+    width: fit-content;
+
+    /* Typography */
+    color: #228D99;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%;
+    letter-spacing: 0.16px;
+}
+
+/* ---------------------------------------------------- */
+
+#chat-compose {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+
+    /* Style */
+    padding: 20px 30px 20px 20px;
+    background-color: #ffffff;
+    border-radius: 0 0 15px 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+#compose-message-field {
+    /* Style */
+    border: none;
+    outline: none;
+    resize: vertical;
+    min-height: 60px;
+
+    /* Typography */
+    color: #00000081;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    letter-spacing: 0.14px;
+}
+
+#submit-message {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#submit-message img {
+    width: 30px;
+}
+
+
+textarea::-webkit-scrollbar {
+    width: 6px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #7e7e7e;
+}
+
+/* Firefox */
+textarea {
+    scrollbar-width: thin;
+    scrollbar-color: #7e7e7e #f1f1f1;
+}

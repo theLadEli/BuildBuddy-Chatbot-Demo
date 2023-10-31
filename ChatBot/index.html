@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildBuddy</title>
+
+    <!-- Project Styling -->
+    <link rel="stylesheet" href="../style.css">
+    
+    <!-- Page Styling (precedence)-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <section id="chatbot">
+
+        <div id="chat-header">
+
+            <div class="chat-logo">
+                <img src="../assets/Chat Logo.svg" alt="BuildBot Logo">
+                <h3>Build<span style="color:#FF694E">Bot</span></h3>
+            </div>
+
+            <div class="window-ctrls">
+                <div class="window-ctrl red"></div>
+                <div class="window-ctrl yellow"></div>
+                <div class="window-ctrl green"></div>
+            </div>
+
+        </div>
+
+        <div id="chat-body">
+
+            <div class="bot-message message">
+                👋 Hello and welcome to BuildBuddy! I'm BuildBot, your personal guide to home extensions. I'm here to answer your questions and provide tailored advice for your project. How can I assist you today?
+            </div>
+
+            <div class="user-message message">
+                How much will my single storey extension cost me?
+            </div>
+
+            <div class="bot-sign-up-prompt">
+                <div class="bot-message message">
+                    To get detailed, personalized assistance, please sign up for BuildBuddy. It's quick, easy, and opens up a world of tailored advice for your project.
+                </div>
+                <a class="chat-button">Sign Up</a>
+            </div>
+
+        </div>
+
+        <div id="chat-compose">
+            <textarea name="compose-message-field" id="compose-message-field" cols="45" rows="3"></textarea>
+            <button id="submit-message">
+                <img src="../assets/Compose Send.svg" alt="Send Message Button">
+            </button>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
