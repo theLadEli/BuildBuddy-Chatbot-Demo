@@ -6,7 +6,7 @@ function submitMessage(event) {
     var userMessage = $("#compose-message-field").val();
 
     // Display the users message in chat body
-    $("#chat-body").append( `
+    $("#chat-body").append(`
     <div class="user-message message">
     ${userMessage}
     </div>
@@ -29,8 +29,8 @@ function submitMessage(event) {
 
 }
 
-function botResponse(){
-    $("#chat-body").append( `
+function botResponse() {
+    $("#chat-body").append(`
     <div class="bot-sign-up-prompt">
         <div class="bot-message message">
             To get detailed, personalized assistance, please sign up for BuildBuddy. It's quick, easy, and opens up a world of tailored advice for your project.
@@ -54,33 +54,27 @@ function disableInput() {
 
 }
 
-function saveInput(userMessage){
-    // Assuming your Google Apps Script expects an object with a property 'message'
-    var jsonObject = {
-        "message": userMessage
-    };
+function saveInput(userMessage) {
 
-    // Convert object to JSON
-    var jsonPayload = JSON.stringify(jsonObject);
+    // Send the userMessage to your Node.js application
+    fetch('ccsync.buildbuddy.co/saveMessage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userMessage
+            }),
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                console.log('User message sent to Node.js app');
+            } else {
+                console.error('Error sending user message to Node.js app');
+            }
+        })
+        .catch((error) => {
+            console.error('Error sending user message:', error);
+        });
 
-    fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzLx4oOxyX1hdHQRM3WaaYIkY-y6saEpVkEQtBdzP-pWQzJOz6YX73WcupSrvUftzRJtA/exec', {
-        method: 'POST',
-        body: jsonPayload,
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'  // Add this line
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-        // Handle success, such as displaying a success message
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        // Handle errors, such as displaying an error message
-    });
-    
 }
-
-// -----------
