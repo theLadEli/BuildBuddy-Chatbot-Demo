@@ -63,7 +63,7 @@ function saveInput(userMessage){
     // Convert object to JSON
     var jsonPayload = JSON.stringify(jsonObject);
 
-    fetch('https://script.google.com/macros/s/AKfycbzLx4oOxyX1hdHQRM3WaaYIkY-y6saEpVkEQtBdzP-pWQzJOz6YX73WcupSrvUftzRJtA/exec', {
+    fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
         method: 'POST',
         body: jsonPayload,
         headers: {
