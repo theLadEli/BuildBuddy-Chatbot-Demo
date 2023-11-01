@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuildBuddy</title>
+    <title>BuildBuddy ChatBot</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Favicon.png">
+
 
     <!-- Project Styling -->
     <link rel="stylesheet" href="../style.css">
@@ -22,7 +24,7 @@
 
             <div class="chat-logo">
                 <img src="../assets/Chat Logo.svg" alt="BuildBot Logo">
-                <h3>Build<span style="color:#FF694E">Bot</span></h3>
+                <h3>Build<span style="color:#FF694E">Buddy</span></h3>
             </div>
 
             <div class="window-ctrls">
@@ -36,31 +38,26 @@
         <div id="chat-body">
 
             <div class="bot-message message">
-                👋 Hello and welcome to BuildBuddy! I'm BuildBot, your personal guide to home extensions. I'm here to answer your questions and provide tailored advice for your project. How can I assist you today?
-            </div>
-
-            <div class="user-message message">
-                How much will my single storey extension cost me?
-            </div>
-
-            <div class="bot-sign-up-prompt">
-                <div class="bot-message message">
-                    To get detailed, personalized assistance, please sign up for BuildBuddy. It's quick, easy, and opens up a world of tailored advice for your project.
-                </div>
-                <a class="chat-button">Sign Up</a>
+                👋 Hello and welcome to BuildBuddy! I'm your personal guide to home extensions. I'm here to answer your questions and provide tailored advice for your project. How can I assist you today?
             </div>
 
         </div>
 
         <div id="chat-compose">
-            <textarea name="compose-message-field" id="compose-message-field" cols="45" rows="3"></textarea>
-            <button id="submit-message">
-                <img src="../assets/Compose Send.svg" alt="Send Message Button">
-            </button>
+            <form action="/submit-form" method="POST" onsubmit="submitMessage(event)">
+                <textarea placeholder="Type your message here..." name="compose-message-field" id="compose-message-field" cols="45" rows="3"></textarea>
+                <button type="submit" id="submit-message">
+                    <img src="../assets/Compose Send.svg" alt="Send Message Button">
+                </button>
+            </form>
         </div>
 
     </section>
 
+<!-- jQuery Code -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="script.js"></script>
 </body>
 
 </html>

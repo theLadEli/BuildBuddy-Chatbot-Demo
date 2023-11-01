@@ -126,11 +126,18 @@ h3 {
     text-align: left;
 }
 
+::placeholder {
+    opacity: 0.5;
+}
+
+
 .bot-message {
     background-color: #fff;
     border-radius: 8px;
     max-width: 325px;
     align-self: flex-start;
+
+    animation: slideIn 0.5s ease-out forwards;
 }
 
 .user-message {
@@ -139,6 +146,8 @@ h3 {
     max-width: 325px;
     color: #fff;
     align-self: flex-end;
+
+    animation: slideIn 0.5s ease-out forwards;
 }
 
 .bot-sign-up-prompt {
@@ -163,22 +172,25 @@ h3 {
     font-weight: 700;
     line-height: 125%;
     letter-spacing: 0.16px;
+    text-decoration: none;
 }
 
 /* ---------------------------------------------------- */
 
 #chat-compose {
-    /* Layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
-
     /* Style */
     padding: 20px 30px 20px 20px;
     background-color: #ffffff;
     border-radius: 0 0 15px 15px;
     border-top: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+#chat-compose form {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
 }
 
 #compose-message-field {
@@ -198,6 +210,17 @@ h3 {
     letter-spacing: 0.14px;
 }
 
+.disabled {
+    text-align: center;
+    opacity: 0.7;
+    resize: none !important;
+    cursor: default;
+}
+
+.disabled:hover {
+    cursor: default !important;
+}
+
 #submit-message {
     background: none;
     border: none;
@@ -206,6 +229,7 @@ h3 {
 
 #submit-message img {
     width: 30px;
+    -webkit-user-drag: none !important;
 }
 
 
@@ -230,4 +254,19 @@ textarea::-webkit-scrollbar-thumb:hover {
 textarea {
     scrollbar-width: thin;
     scrollbar-color: #7e7e7e #f1f1f1;
+}
+
+/* ---------------------------------------------------- */
+
+/* Animate the messages in */
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
