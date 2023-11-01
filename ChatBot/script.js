@@ -63,11 +63,12 @@ function saveInput(userMessage){
     // Convert object to JSON
     var jsonPayload = JSON.stringify(jsonObject);
 
-    fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbw1DPqVBQBAiQwTrCoOT9lz8nx1UiboGkVOIjUYWlc7MVqsbeBTczuYX8MfmCHVTXIJ/exec', {
+    fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/YOUR_ACTUAL_SCRIPT_ID/exec', {
         method: 'POST',
         body: jsonPayload,
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'  // Add this line
         }
     })
     .then(response => response.json())
@@ -79,6 +80,7 @@ function saveInput(userMessage){
         console.error('Error:', error);
         // Handle errors, such as displaying an error message
     });
+    
 }
 
 // -----------
