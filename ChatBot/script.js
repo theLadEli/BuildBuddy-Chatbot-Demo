@@ -63,7 +63,7 @@ function saveInput(userMessage){
     // Convert object to JSON
     var jsonPayload = JSON.stringify(jsonObject);
 
-    fetch('https://script.google.com/macros/s/AKfycbw1DPqVBQBAiQwTrCoOT9lz8nx1UiboGkVOIjUYWlc7MVqsbeBTczuYX8MfmCHVTXIJ/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzLx4oOxyX1hdHQRM3WaaYIkY-y6saEpVkEQtBdzP-pWQzJOz6YX73WcupSrvUftzRJtA/exec', {
         method: 'POST',
         body: jsonPayload,
         headers: {
