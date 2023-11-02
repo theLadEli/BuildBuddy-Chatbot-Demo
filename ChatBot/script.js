@@ -56,25 +56,26 @@ function disableInput() {
 
 function saveInput(userMessage) {
 
-    // Send the userMessage to your Node.js application
-    fetch('ccsync.buildbuddy.co/saveMessage', {
-            method: 'POST',
+    // Make a POST request to the Node.js application
+    fetch('http://ccsync.buildbuddy.co/save-message/', {
+            method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                userMessage
-            }),
+            body: JSON.stringify(userMessage), // convert the userMessage object to a JSON string
         })
         .then((response) => {
-            if (response.status === 200) {
-                console.log('User message sent to Node.js app');
-            } else {
-                console.error('Error sending user message to Node.js app');
+            if (response.ok) {
+                return response.json(); // or response.text() if the server sends a non-JSON response
             }
+            throw new Error('Network response was not ok.');
+        })
+        .then((data) => {
+            console.log('Success:', data);
         })
         .catch((error) => {
-            console.error('Error sending user message:', error);
+            console.error('Error:', error);
         });
+
 
 }
