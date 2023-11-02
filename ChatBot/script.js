@@ -57,7 +57,7 @@ function disableInput() {
 function saveInput(userMessage) {
 
     // Make a POST request to the Node.js application
-    fetch('http://ccsync.buildbuddy.co/save-message/', {
+    fetch('https://ccsync.buildbuddy.co/save-message/', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
