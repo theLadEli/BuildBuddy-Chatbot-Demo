@@ -183,6 +183,8 @@ h3 {
     background-color: #ffffff;
     border-radius: 0 0 15px 15px;
     border-top: 1px solid rgba(0, 0, 0, 0.20);
+
+    animation: slideDown 0.5s ease-in forwards;
 }
 
 #chat-compose form {
@@ -269,4 +271,27 @@ textarea {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+@keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+/* ---------------------------------------------------- */
+
+/* Demo Styling */
+
+#chat-compose {
+    display: none;
+}
+
+#chat-body {
+    border-radius: 0 0 15px 15px;
 }

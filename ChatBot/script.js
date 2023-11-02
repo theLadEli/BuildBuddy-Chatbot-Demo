@@ -1,3 +1,35 @@
+$(document).ready(function demoChat() {
+
+    setTimeout(function () {
+
+        $("#chat-body").append(`
+        <div class="user-message message">
+            I need help with planning permissions for my kitchen extension in London, what should I do?
+        </div>
+        `)
+
+    }, 1000);
+
+    setTimeout(function () {
+
+        $("#chat-body").append(`
+            <div class="bot-message message">
+                Navigating planning permissions in London can be quite specific. I can guide you through the application process and even set up a consultation with a local expert who can manage the necessary paperwork for you.
+            </div>
+        `);
+
+    }, 2000);
+
+
+    setTimeout(function () {
+
+        endDemo()
+
+    }, 3000);
+
+})
+
+
 function submitMessage(event) {
     // Prevent page reload on form submit
     event.preventDefault();
@@ -83,4 +115,9 @@ function saveInput(userMessage) {
             console.error('Error:', error);
         });
 
+}
+
+function endDemo() {
+    $("#chat-compose").css("display", "flex");
+    $("#chat-body").css("border-radius", 0)
 }

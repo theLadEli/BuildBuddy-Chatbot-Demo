@@ -1,0 +1,453 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+    #chatbot h3 {
+        margin: 0;
+        font-family: "Aeonik", sans-serif;
+        font-size: 28px;
+        line-height: 24px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    #chatbot {
+        border-radius: 15px;
+        background: #F2F2F5;
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+        width: 500px;
+    }
+
+    #chatbot #chat-header {
+        /* Layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        /* Style */
+        padding: 20px 25px;
+        background: #424343;
+        border-radius: 15px 15px 0 0;
+    }
+
+    #chatbot .chat-logo {
+        /* Layout */
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+
+        /* Typography */
+        color: #FFF;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
+        letter-spacing: 0.24px;
+    }
+
+    #chatbot .window-ctrls {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #chatbot .window-ctrl {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+    }
+
+    #chatbot .red {
+        background-color: #EE6A5F;
+        border: solid 0.5px #CE5347;
+        box-shadow: 0px 0px 6px 0px #EC6D62 inset;
+    }
+
+    #chatbot .yellow {
+        background-color: #F5BD4F;
+        border: solid 0.5px #D6A243;
+        box-shadow: 0px 0px 6px 0px #F5C451 inset;
+    }
+
+    #chatbot .green {
+        background-color: #61C454;
+        border: solid 0.5px #58A942;
+        box-shadow: 0px 0px 6px 0px #68CC58 inset;
+    }
+
+    /* ---------------------------------------------------- */
+
+    #chatbot #chat-body {
+        /* Layout */
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        /* Styling */
+        background-color: #F2F2F5;
+        height: 500px;
+        overflow-y: scroll;
+        padding: 30px;
+    }
+
+    #chatbot #chat-body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #chatbot #chat-body::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    #chatbot #chat-body::-webkit-scrollbar-thumb:hover {
+        background: #7e7e7e;
+    }
+
+    /* Firefox */
+    #chatbot #chat-body {
+        scrollbar-width: thin;
+        scrollbar-color: #7e7e7e #f1f1f100;
+    }
+
+    #chatbot .message {
+        /* Styling */
+        padding: 20px;
+
+        /* Typography */
+        color: #000;
+        font-family: 'Nunito', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 125%;
+        letter-spacing: 0.14px;
+        text-align: left;
+    }
+
+    #chatbot ::placeholder {
+        opacity: 0.5;
+    }
+
+
+    #chatbot .bot-message {
+        background-color: #fff;
+        border-radius: 8px;
+        max-width: 325px;
+        align-self: flex-start;
+
+        animation: slideIn 0.5s ease-out forwards;
+    }
+
+    #chatbot .user-message {
+        border-radius: 8px;
+        background: linear-gradient(98deg, #228D99 0%, #57B3BD 89.04%);
+        max-width: 325px;
+        color: #fff;
+        align-self: flex-end;
+
+        animation: slideIn 0.5s ease-out forwards;
+    }
+
+    #chatbot .bot-sign-up-prompt {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #chatbot .chat-button {
+        /* Style */
+        padding: 14px 60px;
+        border-radius: 32px;
+        border: 3px solid #228D99;
+        cursor: pointer;
+        width: fit-content;
+
+        /* Typography */
+        color: #228D99;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 125%;
+        letter-spacing: 0.16px;
+        text-decoration: none;
+    }
+
+    /* ---------------------------------------------------- */
+
+    #chatbot #chat-compose {
+        /* Style */
+        padding: 20px 30px 20px 20px;
+        background-color: #ffffff;
+        border-radius: 0 0 15px 15px;
+        border-top: 1px solid rgba(0, 0, 0, 0.20);
+    }
+
+    #chatbot #chat-compose form {
+        /* Layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    #chatbot #compose-message-field {
+        /* Style */
+        border: none;
+        outline: none;
+        resize: vertical;
+        min-height: 60px;
+
+        /* Typography */
+        color: #00000081;
+        font-family: 'Nunito', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 125%;
+        letter-spacing: 0.14px;
+    }
+
+    #chatbot .disabled {
+        text-align: center;
+        opacity: 0.7;
+        resize: none !important;
+        cursor: default;
+    }
+
+    #chatbot .disabled:hover {
+        cursor: default !important;
+    }
+
+    #chatbot #submit-message {
+        background: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: none;
+        text-align: right;
+        padding: 0 10px 0 40px;
+    }
+
+    #chatbot #submit-message img {
+        width: 30px;
+        -webkit-user-drag: none !important;
+    }
+
+
+    #chatbot textarea::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #chatbot textarea::-webkit-scrollbar-track {
+        background: #fff;
+    }
+
+    #chatbot textarea::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 6px;
+    }
+
+    #chatbot textarea::-webkit-scrollbar-thumb:hover {
+        background: #7e7e7e;
+    }
+
+    /* Firefox */
+    #chatbot textarea {
+        scrollbar-width: thin;
+        scrollbar-color: #7e7e7e #f1f1f1;
+    }
+
+    /* ---------------------------------------------------- */
+
+    /* Animate the messages in */
+    @keyframes slideIn {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* ------------------------------- */
+    /* Tablet & Mobile Custom Styling  */
+    /* ------------------------------ */
+
+    /* Styles for tablets */
+    @media (min-width: 768px) and (max-width: 1024px) {
+
+        #chatbot {
+            width: 100%;
+        }
+
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 767px) {
+        
+        #chatbot {
+            width: 100%;
+        }
+
+        h3 {
+            font-size: 18px !important;
+        }
+
+        #chatbot .window-ctrl {
+            width: 10px;
+            height: 10px;
+        }
+
+        #chatbot .chat-logo img {
+            width: 30px;
+        }
+
+        #chatbot .chat-logo {
+            gap: 10px;
+        }
+
+        #chatbot .message {
+            font-size: 14px;
+        }
+
+        #chatbot .window-ctrls {
+            gap: 7px;
+        }
+    }
+</style>
+
+<section id="chatbot">
+
+    <div id="chat-header">
+
+        <div class="chat-logo">
+            <img src="http://staging15.buildbuddy.co/wp-content/uploads/2023/11/Chatbot-logo.svg" alt="BuildBot Logo">
+            <h3>Build<span style="color:#FF694E">Buddy</span></h3>
+        </div>
+
+        <div class="window-ctrls">
+            <div class="window-ctrl red"></div>
+            <div class="window-ctrl yellow"></div>
+            <div class="window-ctrl green"></div>
+        </div>
+
+    </div>
+
+    <div id="chat-body">
+
+        <div class="bot-message message">
+            👋 Hello and welcome to BuildBuddy! I'm your personal guide to home extensions. I'm here to answer your
+            questions and provide tailored advice for your project. How can I assist you today?
+        </div>
+
+    </div>
+
+    <div id="chat-compose">
+        <form action="/submit-form" method="POST" onsubmit="submitMessage(event)">
+            <textarea placeholder="Type your message here..." name="compose-message-field" id="compose-message-field"
+                cols="45" rows="3"></textarea>
+            <button type="submit" id="submit-message">
+                <img src="http://staging15.buildbuddy.co/wp-content/uploads/2023/11/Compose-Send.svg"
+                    alt="Send Message Button">
+            </button>
+        </form>
+    </div>
+
+</section>
+
+<!-- jQuery Code -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    function submitMessage(event) {
+        // Prevent page reload on form submit
+        event.preventDefault();
+
+        // Save the users input to a variable
+        var userMessage = $("#compose-message-field").val();
+
+        // Display the users message in chat body
+        $("#chat-body").append(`
+    <div class="user-message message">
+    ${userMessage}
+    </div>
+    `);
+
+        // Clear the text field
+        $("#compose-message-field").val("");
+
+        saveInput(userMessage);
+
+        // Timeout for loading effect
+        setTimeout(function () {
+            // Call the bots response
+            botResponse();
+
+            // Deactivate message box
+            disableInput();
+        }, 1000);
+
+
+    }
+
+    function botResponse() {
+        $("#chat-body").append(`
+    <div class="bot-sign-up-prompt">
+        <div class="bot-message message">
+            To get detailed, personalized assistance, please sign up for BuildBuddy. It's quick, easy, and opens up a world of tailored advice for your project.
+        </div>
+
+        <a class="chat-button" href="https://app.buildbuddy.co/register">Sign Up</a>
+    </div>
+    `);
+    }
+
+    // Disable further user messages once the bot has responded
+    function disableInput() {
+        // Disable the Textarea
+        $("#compose-message-field").prop('disabled', true);
+        $("#compose-message-field").addClass("disabled");
+        $("#compose-message-field").val("To continue using the chatbot, please sign up using the link above.");
+
+        // Disable the button
+        $("#submit-message").prop('disabled', true);
+        $("#submit-message").addClass("disabled")
+
+    }
+
+    function saveInput(userMessage) {
+
+        const sendUserMessage = {
+            userMessage
+        };
+
+        // Make a POST request to the Node.js application
+        fetch('https://ccsync.buildbuddy.co/save-message/', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(sendUserMessage), // convert the userMessage object to a JSON string
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json(); // or response.text() if the server sends a non-JSON response
+                } else {
+                    // If the server response was not ok, read and return the response text for more details
+                    return response.text().then(text => {
+                        throw new Error('Request failed: ' + text)
+                    });
+                }
+            })
+            .then((data) => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+    }
+</script>
