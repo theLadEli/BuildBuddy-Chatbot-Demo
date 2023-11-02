@@ -57,7 +57,7 @@ function disableInput() {
 function saveInput(userMessage) {
 
     const sendUserMessage = {
-        userMessage: "Your message here"
+        userMessage
       };
 
     // Make a POST request to the Node.js application
